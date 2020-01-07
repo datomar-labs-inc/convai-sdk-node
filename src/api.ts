@@ -23,7 +23,7 @@ export class ConvaiAPIClient {
     }
 
     public queryUsers(query: UserQuery): Promise<UserQueryResult> {
-        return this.makeRequestWithBody("POST", "/users/query", query);
+        return this.makeRequestWithBody("POST", `/users/query?limit=${query.limit}&offset=${query.offset}`, query);
     }
 
     public broadcast(input: BroadcastInput): Promise<BroadcastResult> {
@@ -32,5 +32,9 @@ export class ConvaiAPIClient {
 
     public updateUserData(superUserId: string, input: UpdateUserDataInput): Promise<SuperUser> {
         return this.makeRequestWithBody("PUT", `/users/${superUserId}/data`, input);
+    }
+
+    public reachableUsers(query: UserQuery): Promise<number> {
+        return this.makeRequestWithBody("POST", "/reachable-users", query).then((r: any) => r.count);
     }
 }
