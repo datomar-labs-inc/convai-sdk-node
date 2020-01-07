@@ -1,1 +1,6 @@
 src/
+.idea
+yarn.lock
+.eslintignore
+.eslintrc.js
+tsconfig.json
