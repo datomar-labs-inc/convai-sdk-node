@@ -4,7 +4,7 @@ import {UserQuery} from "./user-query";
 export interface BroadcastInput {
     broadcastType: string,
     contextModifier?: ContextModifier,
-    platform: string,
+    channel: string,
     userQuery: UserQuery,
 }
 

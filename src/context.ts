@@ -8,8 +8,8 @@ export class Context extends Flaggable {
     public user: RequestUser;
     public session: Session;
     public text: string;
-    public originPlatform: string;
-    public originalRequest: any;
+    public channel: string;
+    public source: any;
     public isStart: boolean;
     public isTrigger: boolean;
     public errors?: Error[];
@@ -22,7 +22,7 @@ export class Context extends Flaggable {
         this.user = new RequestUser();
         this.session = new Session();
         this.text = "";
-        this.originPlatform = "";
+        this.channel = "";
         this.isStart = false;
         this.isTrigger = false;
     }
@@ -38,12 +38,12 @@ export class Context extends Flaggable {
         c.data = obj.data;
         c.user.data = obj.user.data;
         c.user.id = obj.user.id;
-        c.user.platformId = obj.user.platformId;
+        c.user.channelId = obj.user.channelId;
         c.session.data = obj.session.data;
         c.session.ver = obj.session.ver;
         c.text = obj.text;
-        c.originPlatform = obj.originPlatform;
-        c.originalRequest = obj.originalRequest;
+        c.channel = obj.channel;
+        c.source = obj.source;
         c.isStart = obj.isStart;
         c.isTrigger = obj.isTrigger;
         c.errors = obj.errors;
@@ -55,12 +55,12 @@ export class Context extends Flaggable {
 
 export class RequestUser extends Flaggable {
     public id: string;
-    public platformId: string;
+    public channelId: string;
 
     constructor() {
         super();
 
         this.id = "";
-        this.platformId = "";
+        this.channelId = "";
     }
 }

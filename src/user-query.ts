@@ -162,12 +162,13 @@ export interface SuperUser {
     data: any,
     createdAt: Date,
     updatedAt: Date,
+    channelUsers: ChannelUser[],
 }
 
-export interface PlatformUser {
-    platformId: string,
+export interface ChannelUser {
+    channelId: string,
     environmentId: string,
-    platform: string,
+    channel: string,
     data: any,
     superUserId: string,
     session: Session,
