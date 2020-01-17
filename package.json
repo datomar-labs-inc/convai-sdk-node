@@ -1,6 +1,6 @@
 {
   "name": "convai-sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "repository": "https://github.com/datomar-labs-inc/convai-sdk-node",
   "author": "Datomar Labs <dev@datomar.com>",
