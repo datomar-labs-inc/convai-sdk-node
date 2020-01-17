@@ -1,4 +1,5 @@
 export interface ResponseBlock {
-    t: string;
-    d: string;
+    type: string;
+    data: string;
+    pos: number;
 }
