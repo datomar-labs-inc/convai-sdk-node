@@ -175,3 +175,11 @@ export interface ChannelUser {
     createdAt: Date,
     updatedAt: Date,
 }
+
+export interface UserQueryReachableResult {
+    count: number;
+}
+
+export interface MergeUsersRequest {
+    superUserIds: string[]
+}
