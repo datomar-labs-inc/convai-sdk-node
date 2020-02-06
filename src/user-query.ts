@@ -181,5 +181,6 @@ export interface UserQueryReachableResult {
 }
 
 export interface MergeUsersRequest {
-    superUserIds: string[]
+    superUserIds: string[];
+    preferNewUserFields: string[];
 }
