@@ -96,7 +96,7 @@ convai
 | equals() | value | Denotes that the return set from where 'key' is equal to 'value' |
 | exists() | | Denotes that the execution data should have the where 'key' |
 | hasPrefix() | value | Denotes that the return set from the where 'key' starts with 'value' |
-| between() | low, high, inclusive | Denotes that the return set from the where 'key' should be between (low, high) for inclusive = true or [low, high] for inclusive = false |
+| between() | low, high, inclusive | Denotes that the return set from the where 'key' should be between (low, high) for inclusive = false or [low, high] for inclusive = true |
 | setLimit() | limit | Set the limit on results |
 | setOffset() | offset | Set the offset on results |
 | sortAsc() | field | Sort the executions by the field in ascending order |
