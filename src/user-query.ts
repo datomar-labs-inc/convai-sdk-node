@@ -8,20 +8,31 @@ export class UserQueryBuilder {
     private offset: number;
 
     /**
-     * 
+     * Initialize the Query Builder to use the All mode. All the conditions must be true for the users.
      */
     public static all(): UserQueryBuilder {
         return new UserQueryBuilder(UserQueryMode.ALL);
     }
 
+    /**
+     * Initialize the Query Builder to use the Any mode. Atleast one condition should be true for the users.
+     */
     public static any(): UserQueryBuilder {
         return new UserQueryBuilder(UserQueryMode.ANY);
     }
 
+    /**
+     * Initialize the Query Builder to use the Any mode. None of the condition should be true for the users.
+     */
     public static none(): UserQueryBuilder {
         return new UserQueryBuilder(UserQueryMode.NONE);
     }
 
+    /**
+     * Initialize the class
+     * 
+     * @param mode Query Mode to use for the builder. Can be ANY | ALL | NONE
+     */
     constructor(mode: UserQueryMode) {
         this.mode = mode;
         this.checks = [];
@@ -29,7 +40,14 @@ export class UserQueryBuilder {
         this.offset = 0;
     }
 
+    /**
+     * Intialize a query to be performed. This method handles the 'key' part of the query
+     * 
+     * @param field Name of the key
+     */
     public where(field: string): UserQueryBuilder {
+
+        // Check if a query is already in place. If yes, add it to the checks variable
         if (this.currentCheck) {
             this.checks.push(this.currentCheck);
         }
@@ -43,7 +61,14 @@ export class UserQueryBuilder {
         return this;
     }
 
+    /**
+     * This method handles the 'value' part of the query. Denotes that the return set from where 'key' is equal to 'value'
+     * 
+     * @param values The value to be compared
+     */
     public equals(...values: string[]): UserQueryBuilder {
+
+        // Use of this method requires a where() method
         if (!this.currentCheck) {
             throw new Error("cannot call equals without calling where first");
         }
@@ -54,6 +79,11 @@ export class UserQueryBuilder {
         return this;
     }
 
+    /**
+     * This method handles the 'value' part of the query. Denotes that the return set from where 'key' doesn't equal 'value'
+     * 
+     * @param values The value to be compared
+     */
     public notEquals(...values: string[]): UserQueryBuilder {
         if (!this.currentCheck) {
             throw new Error("cannot call notEquals without calling where first");
@@ -65,6 +95,11 @@ export class UserQueryBuilder {
         return this;
     }
 
+    /**
+     * This method handles the 'value' part of the query. Denotes that the return set from the where 'key' starts with 'value'
+     * 
+     * @param values The value to be compared
+     */
     public startsWith(...values: string[]): UserQueryBuilder {
         if (!this.currentCheck) {
             throw new Error("cannot call startsWith without calling where first");
@@ -76,6 +111,11 @@ export class UserQueryBuilder {
         return this;
     }
 
+    /**
+     * This method handles the 'value' part of the query. Denotes that the return set from the where 'key' should be greater than 'value'
+     * 
+     * @param values The value to be compared
+     */
     public greaterThan(...values: string[]): UserQueryBuilder {
         if (!this.currentCheck) {
             throw new Error("cannot call notEquals without calling where first");
@@ -87,6 +127,11 @@ export class UserQueryBuilder {
         return this;
     }
 
+    /**
+     * This method handles the 'value' part of the query. Denotes that the return set from the where 'key' should be less than 'value'
+     * 
+     * @param values The value to be compared
+     */
     public lessThan(...values: string[]): UserQueryBuilder {
         if (!this.currentCheck) {
             throw new Error("cannot call lessThan without calling where first");
@@ -98,7 +143,9 @@ export class UserQueryBuilder {
         return this;
     }
 
-
+    /**
+     * This method handles the 'value' part of the query. Denotes that the user data should have the where 'key'
+     */
     public exists(): UserQueryBuilder {
         if (!this.currentCheck) {
             throw new Error("cannot call exists without calling where first");
@@ -109,6 +156,9 @@ export class UserQueryBuilder {
         return this;
     }
 
+    /**
+     * This method handles the 'value' part of the query. Denotes that the user data should not have the where 'key'
+     */
     public notExists(): UserQueryBuilder {
         if (!this.currentCheck) {
             throw new Error("cannot call notExists without calling where first");
@@ -119,6 +169,9 @@ export class UserQueryBuilder {
         return this;
     }
 
+    /**
+     * Build different user queries into a single user query
+     */
     public build(): UserQuery {
         if (this.currentCheck) {
             this.checks.push(this.currentCheck);

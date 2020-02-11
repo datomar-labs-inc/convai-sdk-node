@@ -10,7 +10,8 @@ npm install convai-sdk --save
 
 ## Initializing Convai Client
 
-Before using any methods for Convai, you would need to config the Convai Client. You can create an API key from Bot > Development > API Keys > Create Key
+Before using any methods for Convai, you would need to config the Convai Client.
+You can create an API key from Bot > Development > API Keys > Create Key
 
 ```js
 const {ConvaiAPIClient} = require('convai-sdk');
