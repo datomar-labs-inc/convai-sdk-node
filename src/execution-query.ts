@@ -19,6 +19,10 @@ export class ExecutionMatcher {
         this.negateCurrent = false;
     }
 
+    /**
+     * 
+     * @param field - The execution field to compare
+     */
     public where(field: string): ExecutionMatcher {
         field = field.trim();
 

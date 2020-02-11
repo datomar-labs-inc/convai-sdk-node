@@ -8,27 +8,6 @@ export class UserQueryBuilder {
     private offset: number;
 
     /**
-     * Initialize the Query Builder to use the All mode. All the conditions must be true for the users.
-     */
-    public static all(): UserQueryBuilder {
-        return new UserQueryBuilder(UserQueryMode.ALL);
-    }
-
-    /**
-     * Initialize the Query Builder to use the Any mode. Atleast one condition should be true for the users.
-     */
-    public static any(): UserQueryBuilder {
-        return new UserQueryBuilder(UserQueryMode.ANY);
-    }
-
-    /**
-     * Initialize the Query Builder to use the Any mode. None of the condition should be true for the users.
-     */
-    public static none(): UserQueryBuilder {
-        return new UserQueryBuilder(UserQueryMode.NONE);
-    }
-
-    /**
      * Initialize the class
      * 
      * @param mode Query Mode to use for the builder. Can be ANY | ALL | NONE
