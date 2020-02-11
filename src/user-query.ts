@@ -7,6 +7,9 @@ export class UserQueryBuilder {
     private limit: number;
     private offset: number;
 
+    /**
+     * 
+     */
     public static all(): UserQueryBuilder {
         return new UserQueryBuilder(UserQueryMode.ALL);
     }
