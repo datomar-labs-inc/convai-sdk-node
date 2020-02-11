@@ -125,6 +125,9 @@ export class ExecutionMatcher {
         return this;
     }
 
+    /**
+     * This method handles the 'value' part of the query. Denotes that the execution data should have the where 'key'
+     */
     public exists(): ExecutionMatcher {
         if (this.currentItem === undefined) {
             throw new Error("cannot call exists before calling where")
