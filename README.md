@@ -45,17 +45,18 @@ convai
 
 ### Reference
 
-* UserQueryMode.ALL - Equivalent of Inner Join. All the conditions must be true for the users.
-* UserQueryMode.ANY - Equivalent of Full Join. Atleast one condition should be true for the users.
-* UserQueryMode.NONE - Equivalent of not (!). None of the condition should be true for the users.
-<br></br>
-* equals(value) - Denotes that the return set from where 'key' is equal to 'value'
-* notEquals(value) - Denotes that the return set from where 'key' doesn't equal 'value'
-* startsWith(value) - Denotes that the return set from the where 'key' starts with 'value'
-* greaterThan(value) - Denotes that the return set from the where 'key' should be greater than 'value'
-* lessThan(value) - Denotes that the return set from the where 'key' should be less than 'value'
-* exists() - Denotes that the user data should have the where 'key'
-* notExists() - Denotes that the user data should not have the where 'key'
+| Name | Parameters | Function |
+| --- | :---: | --- |
+| UserQueryMode.ALL |  | Equivalent of Inner Join. All the conditions must be true for the users. |
+| UserQueryMode.ANY |  | Equivalent of Full Join. Atleast one condition should be true for the users. |
+| UserQueryMode.NONE |  | Equivalent of not (!). None of the condition should be true for the users. |
+| equals() | value | Denotes that the return set from where 'key' is equal to 'value' |
+| notEquals() | value | Denotes that the return set from where 'key' doesn't equal 'value' |
+| startsWith() | value | Denotes that the return set from the where 'key' starts with 'value' |
+| greaterThan() | value | Denotes that the return set from the where 'key' should be greater than 'value' |
+| lessThan() | value | Denotes that the return set from the where 'key' should be less than 'value' |
+| exists() |  | Denotes that the user data should have the where 'key' |
+| notExists() |  | Denotes that the user data should not have the where 'key' |
 
 ## Querying Executions
 
