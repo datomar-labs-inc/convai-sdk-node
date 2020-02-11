@@ -90,15 +90,14 @@ convai
 
 ### Reference
 
-* not() - Negate a condition
-<br></br>
-* equals(value) - Denotes that the return set from where 'key' is equal to 'value'
-* exists() - Denotes that the execution data should have the where 'key'
-* hasPrefix(value) - Denotes that the return set from the where 'key' starts with 'value'
-* between(low, high, inclusive) - Denotes that the return set from the where 'key' should be between (low, high) for inclusive = true or [low, high] for inclusive = false
-<br></br>
-* setLimit(limit) - Set the limit on results
-* setOffset(offset) - Set the offset on results
-<br></br>
-* sortAsc(field) - Sort the executions by the field in ascending order
-* sortDesc(field) - Sort the executions by the field in descending order
+| Name | Parameters | Function |
+| --- | :---: | --- |
+| not() | | Negate a condition |
+| equals() | value | Denotes that the return set from where 'key' is equal to 'value' |
+| exists() | | Denotes that the execution data should have the where 'key' |
+| hasPrefix() | value | Denotes that the return set from the where 'key' starts with 'value' |
+| between() | low, high, inclusive | Denotes that the return set from the where 'key' should be between (low, high) for inclusive = true or [low, high] for inclusive = false |
+| setLimit() | limit | Set the limit on results |
+| setOffset() | offset | Set the offset on results |
+| sortAsc() | field | Sort the executions by the field in ascending order |
+| sortDesc() | field | Sort the executions by the field in descending order |
