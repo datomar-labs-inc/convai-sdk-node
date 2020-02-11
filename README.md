@@ -29,13 +29,22 @@ const {ConvaiAPIClient, UserQueryBuilder} = require('convai-sdk');
 
 const convai = new ConvaiAPIClient(API_KEY);
 
-convai.queryUsers(UserQueryBuilder.all().where('first-name').equals('John').build()).then(users => console.log(users));
+convai
+    .queryUsers(UserQueryBuilder.all().where('first-name').equals('John').build())
+    .then(users => console.log(users));
 ```
 
 To add multiple conditions, you can stack them on the UserQueryBuilder. For example,
 
 ```js
-convai.queryUsers(UserQueryBuilder.all().where('first-name').equals('John').where('last-name').equals('Snow').build()).then(users => console.log(users));
+convai
+    .queryUsers(
+        UserQueryBuilder.all()
+        .where('first-name').equals('John')
+        .where('last-name').equals('Snow')
+        .build()
+    )
+    .then(users => console.log(users));
 ```
 
 ### Reference
