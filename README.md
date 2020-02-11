@@ -91,13 +91,13 @@ convai
 
 * not() - Negate a condition
 <br></br>
-* equals(value: String) - Denotes that the return set from where 'key' is equal to 'value'
+* equals(value) - Denotes that the return set from where 'key' is equal to 'value'
 * exists() - Denotes that the execution data should have the where 'key'
-* hasPrefix(value: String) - Denotes that the return set from the where 'key' starts with 'value'
-* between(low: string, high: string, inclusive: boolean) - Denotes that the return set from the where 'key' should be between (low, high) for inclusive = true or [low, high] for inclusive = false
+* hasPrefix(value) - Denotes that the return set from the where 'key' starts with 'value'
+* between(low, high, inclusive) - Denotes that the return set from the where 'key' should be between (low, high) for inclusive = true or [low, high] for inclusive = false
 <br></br>
-* setLimit(limit: number) - Set the limit on results
-* setOffset(offset: number) - Set the offset on results
+* setLimit(limit) - Set the limit on results
+* setOffset(offset) - Set the offset on results
 <br></br>
-* sortAsc(field: string) - Sort the executions by the field in ascending order
-* sortDesc(field: string) - Sort the executions by the field in descending order
+* sortAsc(field) - Sort the executions by the field in ascending order
+* sortDesc(field) - Sort the executions by the field in descending order
