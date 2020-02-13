@@ -101,3 +101,8 @@ convai
 | setOffset() | offset | Set the offset on results |
 | sortAsc() | field | Sort the executions by the field in ascending order |
 | sortDesc() | field | Sort the executions by the field in descending order |
+
+## Broadcast
+
+Use the broadcast() method to broadcast a trigger that is already configured in Convai. 
+

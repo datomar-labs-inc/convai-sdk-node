@@ -12,8 +12,8 @@ export class ExecutionMatcher {
     /**
      * Initialize the class
      */
-    constructor() {
-        this.limit = 10;
+    constructor(limit ?: number) {
+        this.limit = limit || 10;
         this.offset = 0;
 
         this.filters = [];
@@ -44,7 +44,7 @@ export class ExecutionMatcher {
 
         this.currentItem = {
             field: field,
-            op: Operation.EQUALS,
+            op: ExecutionOperation.EQUALS,
         };
         this.negateCurrent = false;
 
@@ -56,16 +56,6 @@ export class ExecutionMatcher {
      */
     public not(): ExecutionMatcher {
         this.negateCurrent = true;
-        return this;
-    }
-
-    /**
-     * Set the limit on results
-     * 
-     * @param limit - The limit to be set
-     */
-    public setLimit(limit: number): ExecutionMatcher {
-        this.limit = limit;
         return this;
     }
 
@@ -119,7 +109,7 @@ export class ExecutionMatcher {
             this.currentItem.matcher = [];
         }
 
-        this.currentItem.op = Operation.EQUALS;
+        this.currentItem.op = ExecutionOperation.EQUALS;
         this.currentItem.matcher.push(...value);
 
         return this;
@@ -133,7 +123,7 @@ export class ExecutionMatcher {
             throw new Error("cannot call exists before calling where")
         }
 
-        this.currentItem.op = Operation.EXISTS;
+        this.currentItem.op = ExecutionOperation.EXISTS;
 
         return this;
     }
@@ -148,7 +138,7 @@ export class ExecutionMatcher {
             throw new Error("cannot call hasPrefix before calling where")
         }
 
-        this.currentItem.op = Operation.HAS_PREFIX;
+        this.currentItem.op = ExecutionOperation.HAS_PREFIX;
         this.currentItem.matcher = [prefix];
 
         return this;
@@ -167,9 +157,9 @@ export class ExecutionMatcher {
         }
 
         if (inclusive) {
-            this.currentItem.op = Operation.BETWEEN_INCLUSIVE;
+            this.currentItem.op = ExecutionOperation.BETWEEN_INCLUSIVE;
         } else {
-            this.currentItem.op = Operation.BETWEEN_EXCLUSIVE;
+            this.currentItem.op = ExecutionOperation.BETWEEN_EXCLUSIVE;
         }
 
         this.currentItem.lowerBound = low;
@@ -180,7 +170,7 @@ export class ExecutionMatcher {
 }
 
 interface ExecutionQueryItem {
-    op: number;
+    op: ExecutionOperation;
     field: string;
     matcher?: string[];
     lowerBound?: string;
@@ -192,6 +182,6 @@ interface ExecutionSort {
     asc: boolean;
 }
 
-enum Operation {
+enum ExecutionOperation {
     EQUALS, EXISTS, BETWEEN_EXCLUSIVE, BETWEEN_INCLUSIVE, HAS_PREFIX
 }
