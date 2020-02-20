@@ -181,7 +181,7 @@ export class ContextModifier {
      * 
      * @returns The current context modifier instance
      */
-    public log(level: number, message: string): ContextModifier {
+    private log(level: number, message: string): ContextModifier {
         this.logs.push({
             level,
             message,
