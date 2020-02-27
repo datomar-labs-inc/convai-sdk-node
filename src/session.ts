@@ -19,4 +19,5 @@ export interface Stack {
 export interface Frame {
     m: number; // Module
     n: number; // Node
+    v: { key: string } // Module scoped variables
 }

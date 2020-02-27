@@ -3,3 +3,4 @@ export interface ResponseBlock {
     data: string;
     pos: number;
 }
+
