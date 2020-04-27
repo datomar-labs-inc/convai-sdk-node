@@ -13,6 +13,12 @@ import {ExecutionMatcher} from "./execution-query";
 import {Execution, ExecutionQueryResult} from "./execution";
 import {TriggerRequest} from "./trigger";
 import {Session} from "./session";
+import {
+    CreateChannelUsersRequest,
+    CreateChannelUsersResult,
+    CreateCombinedUserRequest,
+    CreateCombinedUserResult
+} from "./create-users";
 
 export class ConvaiAPIClient {
     private baseURL: string;
@@ -55,6 +61,16 @@ export class ConvaiAPIClient {
 
     public mergeUsers(req: MergeUsersRequest): Promise<SuperUser> {
         return this.makeRequestWithBody("POST", "/users/super/merge", req);
+    }
+
+    // Create a super user and associated channel users
+    public createCombinedUser(req: CreateCombinedUserRequest): Promise<CreateCombinedUserResult> {
+        return this.makeRequestWithBody("POST", "/users/super/create", req);
+    }
+
+    // Create channel users for an existing super user
+    public createChannelUsers(req: CreateChannelUsersRequest): Promise<CreateChannelUsersResult> {
+        return this.makeRequestWithBody("POST", "/users/channel/create", req);
     }
 
     public deleteSuperUser(id: string): Promise<SuperUser> {
